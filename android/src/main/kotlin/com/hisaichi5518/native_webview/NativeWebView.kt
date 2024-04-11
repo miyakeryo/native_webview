@@ -49,10 +49,10 @@ class NativeWebView(context: Context, channel: MethodChannel, options: WebViewOp
 
         initialFile?.let { path ->
             val filename = Locator.binding!!.flutterAssets.getAssetFilePathByName(path)
-            loadUrl("file:///android_asset/${filename}", initialHeaders)
+            loadUrl("file:///android_asset/${filename}", initialHeaders ?: emptyMap())
             return
         }
 
-        loadUrl(initialURL, initialHeaders)
+        loadUrl(initialURL, initialHeaders ?: emptyMap())
     }
 }
