@@ -91,7 +91,7 @@ class FlutterWebViewController(
                     return
                 }
 
-                webview.loadUrl(url, arguments["headers"] as? Map<String, String>)
+                webview.loadUrl(url, arguments["headers"] as? Map<String, String> ?: emptyMap())
                 result.success(true)
             }
             "canGoBack" -> {
